@@ -42,7 +42,11 @@ int solve(int n, int* start, int* inter, int* end) {
         end[index_end] = start[index_start];
         start[index_start] = -1;
         show();
-        usleep((int)9000000000/(pow(9, b.nb)));
+        if (b.nb > 4) {
+            usleep((int)9000000000/(pow(5, b.nb)));
+        } else {
+            usleep(200000);
+        }
         cpt += solve(n-1, inter, start, end);
     }
     return cpt;
